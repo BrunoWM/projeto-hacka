@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Inflação</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="header">
+        <h1>Inflação</h1>
+        <div class="stats">
+            <div>Resolvidos: {{ resolved }}</div>
+            <div>Pendentes: {{ pending }}</div>
+            <div>Em andamento: {{ in_progress }}</div>
+        </div>
+    </div>
+    {% for issue in issues %}
+    <div class="issue">
+        <img src="{{ issue.image_url }}" alt="Problema de inflação">
+        <div class="info">
+            <p>{{ issue.address }}</p>
+            <p>Data registro: {{ issue.date }}</p>
+            <p>Status: {{ issue.status }}</p>
+        </div>
+        <button>{{ issue.action }}</button>
+    </div>
+    {% endfor %}
+</body>
+</html>
